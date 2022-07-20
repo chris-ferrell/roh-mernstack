@@ -1,6 +1,6 @@
 const express = require('express')
 const User = require('../models/userModel')
-const Item = require('../models/ItemModel')
+const Item = require('../models/itemModel')
 const {
     getUser,
     getUsers,

@@ -1,5 +1,5 @@
 const User =  require('../models/userModel')
-const Item = require('../models/ItemModel')
+const Item = require('../models/itemModel')
 const mongoose = require('mongoose')
 
 //GET all shop items

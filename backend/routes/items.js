@@ -1,5 +1,5 @@
 const express = require('express')
-const Item = require('../models/ItemModel')
+const Item = require('../models/itemModel')
 const {
     getItems,
     getItem,
