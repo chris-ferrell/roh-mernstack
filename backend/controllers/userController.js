@@ -2,13 +2,13 @@ const User =  require('../models/userModel')
 const Item = require('../models/itemModel')
 const mongoose = require('mongoose')
 
-//GET all shop items
+//GET all shop items.
 const getItems =  async (req, res) => {
     const items = await Item.find({}).sort({createdAt: -1})
     res.status(200).json(items)
 
 }
-//GET One Shop item 
+//GET One Shop item .
 const getItem = async (req, res) => {
     const {id} = req.params
 
