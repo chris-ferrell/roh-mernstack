@@ -1,6 +1,7 @@
 
 import React from 'react'
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
+
 import Home from './pages/Home'
 import Navbar from './components/category/general/Navbar'
 import About from './pages/About'
@@ -13,6 +14,9 @@ import AdminPanel from './pages/adminPanel'
 
 
 import './navbar.css'
+
+
+
 
 
 function App() {

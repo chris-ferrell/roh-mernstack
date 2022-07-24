@@ -1,6 +1,8 @@
 import { useState } from "react";
 import "../css/Tabs.css";
 import AdminPanel from "../components/category/admin-tools/admin-shop"
+import AccountManagerForm from "../components/category/general/UserManagerForm"
+import Select from 'react-select'
 
 function Tabs() {
   const [toggleState, setToggleState] = useState(1);
@@ -8,6 +10,9 @@ function Tabs() {
   const toggleTab = (index) => {
     setToggleState(index);
   };
+
+
+
 
   return (
     <div className="container">
@@ -44,11 +49,10 @@ function Tabs() {
         <div
           className={toggleState === 2 ? "content  active-content" : "content"}
         >
-          <h2>Content 2</h2>
-          <hr />
-          <p>
-            Tab Two
-          </p>
+          <h2>Account manager</h2>
+ 
+        <AccountManagerForm/>
+
         </div>
 
         <div
