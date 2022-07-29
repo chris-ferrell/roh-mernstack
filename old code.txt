@@ -1,1 +1,47 @@
 <Navbar />
+
+    function userList() {
+      
+      const nameList = users.map(discordUser => {
+        console.log(`fetch api log ${users} `)
+        
+        var customList = [
+          {UserNickName: discordUser.userName, UserID: discordUser.userID}
+        ]
+        //console.log(discordUser.name)
+        return customList.userName;
+
+        
+      })
+      
+    }
+
+
+
+    var userArray = [users];
+      for(let i = 0; i < users.length; i++) {
+        //userArray.push(users[i]);
+        console.log(userArray[0][0].userID)
+      }
+      
+
+    // WORKS ///
+
+    function ListRturn() {
+    
+      const names = users.map(discordUser => {
+        //const arr = [character.name, character.id];
+        let customList = [
+            {UserNickName: discordUser.userName, UserID: discordUser.userID}
+        ]
+        return customList;
+      })
+    
+    }
+
+    
+
+    //const response = await fetch(`/api/users?first_name_like=${inputText}`);
+        const response = await fetch(`/api/users`)
+        const json = await  response.json();
+

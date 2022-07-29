@@ -2,7 +2,7 @@ import { useState } from "react";
 import "../css/Tabs.css";
 import AdminPanel from "../components/category/admin-tools/admin-shop"
 import AccountManagerForm from "../components/category/general/UserManagerForm"
-import Select from 'react-select'
+
 
 function Tabs() {
   const [toggleState, setToggleState] = useState(1);

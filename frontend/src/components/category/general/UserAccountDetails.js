@@ -4,7 +4,11 @@ const UserAccountDetails = ({ user }) => {
   
     return(
     
-      <p>7777</p>
+      <div className="user-details">
+            
+            <p>{user.userID}</p>
+            
+        </div>
      
     )   
 }

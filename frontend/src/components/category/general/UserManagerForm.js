@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import UserAccountDetails from './UserAccountDetails'
-import Select from 'react-select'
+import SearchBar from '../search-bar/SearchBar'
 
 
 
@@ -11,7 +11,7 @@ const UserManagerForm = () => {
      /////////////////////////
      /*FETCH ALL USERS BELOW*/
      /////////////////////////
-
+    
     const [users, setUsers] = useState(null)
 
     useEffect(() => {
@@ -26,7 +26,9 @@ const UserManagerForm = () => {
       } 
 
       fecthUsers()
+      //console.log(users)
     }, [])
+    
 
 
     //////////////////////////
@@ -67,16 +69,65 @@ const UserManagerForm = () => {
      /* UPDATE USER CODE ABOVE */ 
      ////////////////////////////
 
+ 
+  //////////##################################################################\\\\\\\\\\\\\\\\\\\\\\\
+  function getUsers() {
+    var requestOptions = {
+      method: 'GET',
+      redirect: 'follow'
+    };
     
-   
+    fetch("/api/users", requestOptions)
+      .then(response => response.json())
+      .then(result =>  {
 
+        var customList = [
+          {UserNickName: '', UserID: ''}
+        ];
+        var customList2 = [
+          {UserNick: '', UserId: ''}
+        ]
+
+        for (let i=0;i<result.length;i++) {
+
+          let array = {userName: result[i]['userName'], userID: result[i]['userID']}
+          let {userName, userID} = array;
+
+          customList.push({UserNickName: userName, UserID: userID});
+
+          console.log(userName, userID)
+          
+        }
+        
+        //for (let j=0; j<customList.length;j++) {
+        //  let array = {userNick: customList[j]['UserNickName'], userId: customList[j]['UserID']}
+        //  let {userNick, userId} = array;
+          
+        //  customList2.push({NickName: userNick, ID: userId})
+
+        //} 
+        //console.log(customList2)
+      })
+      /*
+      let array = {userName: result[0]['userName'], userID: result[0]['userID']}
+      let {userName, userID} = array;
+      console.log(userName,userID)
+      }) 
+      */
+
+  }
+    
+  
+  console.log(getUsers())
+   
+   //////////##################################################################\\\\\\\\\\\\\\\\\\\\\\
   return (
     
     <form onSubmit={handleSubmit}>
-
-        <div>
         
-           
+        <div>
+            
+         <SearchBar placeholder="Search User..."/>
 
         </div>
 
@@ -87,7 +138,7 @@ const UserManagerForm = () => {
         </button>
 
         <label>   </label>
-        <input type="number" value={balance} onChangep={e => setBalance(e.target.value)} placeholder="balance"/>
+        <input type="number" value={balance} onChange={e => setBalance(e.target.value)} placeholder="balance"/>
         <button onClick={() => updateDataBase(setBalance)}>
             update
         </button>
